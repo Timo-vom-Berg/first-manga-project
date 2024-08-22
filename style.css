@@ -1,0 +1,26 @@
+@keyframes textShine {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.animated-text {
+    font-size: clamp(2.8rem, 1.5vw, 3rem);
+    font-weight: bold;
+    margin: 5px;
+    background: linear-gradient(to right,
+            #68e6db 20%,
+            #086d9c 30%,
+            #0190cd 70%,
+            #581fdd 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    background-size: 500% auto;
+    animation: textShine 5s ease-in-out infinite alternate;
+}

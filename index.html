@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <link rel="stylesheet" href="style.css">
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="./script.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Manga Recommendations</title>
+  </head>
+  <body>
+    <h1 class="animated-text text-center mt-4">Manga Recommender</h1>
+    <section class="recommendations">
+      <h2 class="text-bg-primary p-3">Recommendations</h2>
+      <div class="manga-recs group row m-2 d-flex justify-content-center">
+        <div class="card col-xs-6" style="width: 18rem">
+          <img
+            src="https://picsum.photos/200/250"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <a href="#" class="btn btn-primary">Go to Manga</a>
+          </div>
+        </div>
+        <div class="card col-xs-6" style="width: 18rem">
+          <img
+            onclick=""
+            src="https://picsum.photos/200/250"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem">
+          <img
+            src="https://picsum.photos/200/250"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <a class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <h2 class="text-bg-primary p-3">
+        Search for your manga
+    
+      </h2>
+    <div class="mt-4 search-field d-flex justify-content-center">
+        <label class="search">
+        <input type="search" class="search-input" placeholder="Search" />
+      </label>
+      <button onclick="searchMangas()" class="btn btn-light">Find your Manga</button>
+    </div>
+
+    <div class="manga-searched group row m-2 d-flex justify-content-center">
+    </div>
+
+
+  </body>
+</html>
