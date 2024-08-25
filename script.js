@@ -8,12 +8,12 @@ const mangaRecsList = document.querySelector(".manga-recs");
 async function fetchRecommendedMangas() {
   mangaRecsList.innerHTML = "";
   for (const id of RECOMMENDED_MANGA_IDS) {
-    await new Promise(r => setTimeout(r, 500)); 
+    await new Promise(r => setTimeout(r, 500));
     const recManga = await fetch(`${MANGA_API_URL}/${id}`);
     const manga = await recManga.json();
     const mangaObject = extractMangaData(manga.data);
     const mangaRecsList = document.querySelector(".manga-recs");
-    mangaRecsList.innerHTML+=CreateMangaItem(mangaObject)
+    mangaRecsList.innerHTML += CreateMangaItem(mangaObject)
   }
 }
 
@@ -51,59 +51,58 @@ function CreateMangaItem(mangaDataObject) {
           <div class="card-body">
             <h5 class="card-title">${mangaDataObject.title}</h5>
             <p class="card-text">
-            ${mangaDataObject.synopsis.slice(0,300)}...</p>
+            ${mangaDataObject.synopsis.slice(0, 300)}...</p>
             <a href=" ${mangaDataObject.url}" class="btn btn-primary">Go to Manga</a>
           </div>
         </div>`;
 }
 
-https://www.crunchyroll.com/de/search?q=Blue%20Lock
 
-function getCrunchyrollLink(title){
-    const encodedTitle = encodeURIComponent(title);
-    return `https://www.crunchyroll.com/de/search?q=${encodedTitle}`
+function getCrunchyrollLink(title) {
+  const encodedTitle = encodeURIComponent(title);
+  return `https://www.crunchyroll.com/de/search?q=${encodedTitle}`
 }
-function linkToCrunchyRoll(title){
-    console.log(title)
-    const link = getCrunchyrollLink(title)
-    window.location.href=link 
-//.search-input damit greifen wir auf unser html Dokument zu
+function linkToCrunchyRoll(title) {
+  console.log(title)
+  const link = getCrunchyrollLink(title)
+  window.location.href = link
+  //.search-input damit greifen wir auf unser html Dokument zu
 }
 // window.location zum redircten von hyperlinks
-async function searchMangas(){
-    const searchInput = document.querySelector(".search-input");
-    const {value} = searchInput;
-    const params = new URLSearchParams();
-    params.append('q', value);
-    params.append('limit', 10);
-    const searchUrl=`${MANGA_API_URL}?${params}`
-    const searchedMangas = await fetch(searchUrl)
-    const searchData = await searchedMangas.json()
-    displaySearchedMangas(searchData.data)
+async function searchMangas() {
+  const searchInput = document.querySelector(".search-input");
+  const { value } = searchInput;
+  const params = new URLSearchParams();
+  params.append('q', value);
+  params.append('limit', 10);
+  const searchUrl = `${MANGA_API_URL}?${params}`
+  const searchedMangas = await fetch(searchUrl)
+  const searchData = await searchedMangas.json()
+  displaySearchedMangas(searchData.data)
 }
 
 
 
-function displaySearchedMangas(searchData){
-    const mangasearchedList = document.querySelector('.manga-searched')
-    mangasearchedList.innerHTML=''
+function displaySearchedMangas(searchData) {
+  const mangasearchedList = document.querySelector('.manga-searched')
+  mangasearchedList.innerHTML = ''
 
-    console.log(searchData)
-    for (const manga of searchData) {
-        console.log(manga)
-        const mangaData = extractMangaData(manga);
-        mangasearchedList.innerHTML+=CreateMangaItem(mangaData)
-       
-        // extrahiere die daten (nutze unsere bestehende hilfsfunktion)
+  console.log(searchData)
+  for (const manga of searchData) {
+    console.log(manga)
+    const mangaData = extractMangaData(manga);
+    mangasearchedList.innerHTML += CreateMangaItem(mangaData)
 
-
-
-        // fuege den manga auf unsere seite hinzu an .manga-searched element
-        // nutze unsere Klasse, denk an document.querySelector
+    // extrahiere die daten (nutze unsere bestehende hilfsfunktion)
 
 
-    }
-    // extrahiere unsere daten async function fetchRecommendedMangas() {
+
+    // fuege den manga auf unsere seite hinzu an .manga-searched element
+    // nutze unsere Klasse, denk an document.querySelector
+
+
+  }
+  // extrahiere unsere daten async function fetchRecommendedMangas() {
 
 
 }
@@ -111,7 +110,7 @@ function displaySearchedMangas(searchData){
 
 /* mangaRecsList.innerHTML = "";
 for (const id of RECOMMENDED_MANGA_IDS) {
-  await new Promise(r => setTimeout(r, 500)); 
+  await new Promise(r => setTimeout(r, 500));
   const recManga = await fetch(`${MANGA_API_URL}/${id}`);
   const manga = await recManga.json();
   const mangaObject = extractMangaData(manga);
